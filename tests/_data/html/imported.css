@@ -1,0 +1,5 @@
+@import 'subdir/subimported.css';
+
+#fbFloatbox .fbLowerPrev_blue2 {
+	background-image: url(images/4.gif);
+}

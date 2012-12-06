@@ -1,0 +1,32 @@
+/* FILE: /_data/html/base1.css */ 
+
+#fbFloatbox .fbLowerPrev_blue2 {
+	background-image: url(/_data/html/subdir/images/5.gif);
+}
+
+
+#fbFloatbox .fbLowerPrev_blue2 {
+	background-image: url(images/4.gif);
+}
+
+
+#fbFloatbox .fbLowerPrev_black {
+	background-image: url(/_data/html/images/1.gif);
+}
+
+#fbFloatbox .fbLowerPrev_white {
+	background-image: url('/_data/html/images/2.gif');
+}
+
+
+/* FILE: /_data/html/base2.css */ 
+
+#fbFloatbox .fbLowerPrev_blue {
+	background-image: url("/_data/html/images/3.gif");
+}
+
+#fbFloatbox .fbLowerPrev_yellow {
+	background-image: url(././subdir/../images/not_found.gif);
+}
+
+

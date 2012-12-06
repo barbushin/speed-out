@@ -1,0 +1,7 @@
+#fbFloatbox .fbLowerPrev_blue {
+	background-image: url("images/3.gif");
+}
+
+#fbFloatbox .fbLowerPrev_yellow {
+	background-image: url(././subdir/../images/not_found.gif);
+}

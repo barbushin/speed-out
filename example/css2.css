@@ -1,0 +1,95 @@
+#vote-wrapper a#ekmvote_positive,
+#vote-wrapper a#ekmvote_negative{
+    text-decoration: none;
+    padding: 3px 0 2px 30px;
+    /* Fixed styles in IE8 */
+    +padding: 0px 0 0px 30px;
+    color: #333333;
+}
+
+#vote-wrapper a#ekmvote_positive.voted-active,
+#vote-wrapper a#ekmvote_negative.voted-active,
+#vote-wrapper a#ekmvote_positive:visited,
+#vote-wrapper a#ekmvote_positive:active,
+#vote-wrapper a#ekmvote_positive:hover,
+#vote-wrapper a#ekmvote_negative:visited,
+#vote-wrapper a#ekmvote_negative:active,
+#vote-wrapper a#ekmvote_negative:hover {
+    color: #fff;
+}
+
+
+#vote-wrapper span {
+    background: #d5d5d5;
+    padding: 3px 5px 2px 7px;
+    font-weight: bold;
+}
+
+#ekmvote_negative {
+    margin-left: 30px;
+}
+
+#vote-wrapper span.end {
+    background: url('../images/icons.png') no-repeat 0 0;
+    padding: 3px 2px 2px 0px;
+}
+/* POSITIVE BUTTON STATE */
+
+#ekmvote_positive {
+    background: url('../images/icons.png') no-repeat -6px 0;
+}
+#ekmvote_positive.voted-active,
+#ekmvote_positive:hover {
+    background: url('../images/icons.png') no-repeat -6px -21px;
+}
+#ekmvote_positive.voted-active span,
+#ekmvote_positive:hover span {
+    background: #25a81d;
+}
+#ekmvote_positive.voted-active span.end,
+#ekmvote_positive:hover span.end {
+    background: url('../images/icons.png') no-repeat 0 -21px;
+}
+
+/* NEGATIVE BUTTON STATE */
+#ekmvote_negative {
+    background: url('../images/icons.png') no-repeat -6px -42px;
+}
+#ekmvote_negative.voted-active,
+#ekmvote_negative:hover {
+    background: url('../images/icons.png') no-repeat -6px -63px;
+}
+
+#ekmvote_negative.voted-active span,
+#ekmvote_negative:hover span {
+    background: #f07777;
+}
+
+#ekmvote_negative.voted-active span.end,
+#ekmvote_negative:hover span.end {
+    background: url('../images/icons.png') no-repeat 0 -42px;
+}
+
+
+/* SEARCH ITEM */
+#search-vote-positive {
+    background: url('../images/search_icons.png') no-repeat 0 0px;
+    padding: 0 10px 0 18px;
+    margin: 0 0 0 10px;
+    color: #999;
+    background-color: #fff;
+    
+}
+
+#search-vote-negative {
+    background: url('../images/search_icons.png') no-repeat 0 -15px;
+    padding: 0 0 0 18px;
+    color: #999;
+    background-color: #fff;
+}
+
+/* RESET ICON */
+
+#vote-wrapper a#ekmvote_reset {
+    margin: 3px 0 2px 30px;
+}

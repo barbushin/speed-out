@@ -1,0 +1,9 @@
+@import "imported.css";
+
+#fbFloatbox .fbLowerPrev_black {
+	background-image: url(images/1.gif);
+}
+
+#fbFloatbox .fbLowerPrev_white {
+	background-image: url('images/2.gif');
+}

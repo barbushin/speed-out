@@ -1,0 +1,25 @@
+<phpunit backupGlobals="true"
+         backupStaticAttributes="true"
+         cacheTokens="true"
+         colors="false"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         forceCoversAnnotation="false"
+         mapTestClassNameToCoveredClassName="false"
+         printerClass="PHPUnit_TextUI_ResultPrinter"
+         processIsolation="false"
+         stopOnError="true"
+         stopOnFailure="true"
+         stopOnIncomplete="false"
+         stopOnSkipped="false"
+         bootstrap="_bootstrap.php"
+         strict="false"
+         verbose="true">
+
+	<testsuites>
+		<testsuite>
+			<directory suffix=".php">.</directory>
+		</testsuite>
+	</testsuites>
+</phpunit>
