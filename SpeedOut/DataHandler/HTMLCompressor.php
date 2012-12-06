@@ -3,8 +3,8 @@
 /**
  * Compress HTML using Minify_HTML class http://code.google.com/p/minify/source/browse/min/lib/Minify/HTML.php
  *
- * @see http://code.google.com/p/speed-out
- * @author Barbushin Sergey http://www.linkedin.com/in/barbushin
+ * @see https://github.com/barbushin/speed-out
+ * @author Barbushin Sergey http://linkedin.com/in/barbushin
  */
 class SpeedOut_DataHandler_HTMLCompressor extends SpeedOut_DataHandler {
 

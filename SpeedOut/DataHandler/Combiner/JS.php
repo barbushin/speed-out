@@ -3,8 +3,8 @@
 /**
  * Data handler for combining many JS resources links to one
  *
- * @see http://code.google.com/p/speed-out
- * @author Barbushin Sergey http://www.linkedin.com/in/barbushin
+ * @see https://github.com/barbushin/speed-out
+ * @author Barbushin Sergey http://linkedin.com/in/barbushin
  */
 class SpeedOut_DataHandler_Combiner_JS extends SpeedOut_DataHandler_Combiner {
 

@@ -2,8 +2,8 @@
 
 /**
  * Optimize JavaScript code by Google Closure service http://closure-compiler.appspot.com
- * @see http://code.google.com/p/speed-out
- * @author Barbushin Sergey http://www.linkedin.com/in/barbushin
+ * @see https://github.com/barbushin/speed-out
+ * @author Barbushin Sergey http://linkedin.com/in/barbushin
  */
 class SpeedOut_DataHandler_GoogleClosure_JsCompressor extends SpeedOut_DataHandler {
 

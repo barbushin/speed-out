@@ -3,8 +3,8 @@
 /**
  * Data handler for combining many resources links in HTML to one resource link
  *
- * @see http://code.google.com/p/speed-out
- * @author Barbushin Sergey http://www.linkedin.com/in/barbushin
+ * @see https://github.com/barbushin/speed-out
+ * @author Barbushin Sergey http://linkedin.com/in/barbushin
  */
 abstract class SpeedOut_DataHandler_Combiner extends SpeedOut_DataHandler {
 

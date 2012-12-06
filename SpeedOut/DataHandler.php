@@ -3,8 +3,8 @@
 /**
  * Handles some string data by reference
  *
- * @see http://code.google.com/p/speed-out
- * @author Barbushin Sergey http://www.linkedin.com/in/barbushin
+ * @see https://github.com/barbushin/speed-out
+ * @author Barbushin Sergey http://linkedin.com/in/barbushin
  */
 abstract class SpeedOut_DataHandler {
 

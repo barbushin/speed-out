@@ -3,8 +3,8 @@
 /**
  * Compress static data using SpeedOut_DataHandler_YUICompressor_Adapter
  *
- * @see http://code.google.com/p/speed-out
- * @author Barbushin Sergey http://www.linkedin.com/in/barbushin
+ * @see https://github.com/barbushin/speed-out
+ * @author Barbushin Sergey http://linkedin.com/in/barbushin
  */
 abstract class SpeedOut_DataHandler_YUICompressor extends SpeedOut_DataHandler {
 

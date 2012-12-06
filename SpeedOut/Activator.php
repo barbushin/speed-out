@@ -6,8 +6,8 @@
  * $_GET[$getVarName] == 0 // isActive === false
  * $_GET[$getVarName] === '' // isActive === $isActiveByDefault, for example index.php?_speedout=
  *
- * @see http://code.google.com/p/speed-out
- * @author Barbushin Sergey http://www.linkedin.com/in/barbushin
+ * @see https://github.com/barbushin/speed-out
+ * @author Barbushin Sergey http://linkedin.com/in/barbushin
  */
 class SpeedOut_Activator {
 

@@ -3,8 +3,8 @@
 /**
  * CSS compression data handler based on SpeedOut_DataHandler_YUICompressor_Adapter
  *
- * @see http://code.google.com/p/speed-out
- * @author Barbushin Sergey http://www.linkedin.com/in/barbushin
+ * @see https://github.com/barbushin/speed-out
+ * @author Barbushin Sergey http://linkedin.com/in/barbushin
  */
 class SpeedOut_DataHandler_YUICompressor_CSS extends SpeedOut_DataHandler_YUICompressor {
 
