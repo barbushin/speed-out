@@ -18,7 +18,6 @@ abstract class SpeedOut_DataHandler_Combiner extends SpeedOut_DataHandler {
 	protected $combinedLinkPlaceholder;
 	protected $insertBeforePlaceholder;
 	protected $linksBaseDir;
-	protected $isDebugMode;
 	/** @var array This property is flushed to array on each new call of handleData() method */
 	protected $handlingProcessData = array();
 
@@ -66,14 +65,6 @@ abstract class SpeedOut_DataHandler_Combiner extends SpeedOut_DataHandler {
 	}
 
 	/**
-	 * If debug mode is enabled, then combined data will be regenerated if internal links content is changed
-	 * @param $isDebugMode
-	 */
-	public function setDebugMode($isDebugMode) {
-		$this->isDebugMode = $isDebugMode;
-	}
-
-	/**
 	 * Add data handler that will be applied to finally combined data
 	 * @param SpeedOut_DataHandler $handler
 	 */
@@ -93,20 +84,22 @@ abstract class SpeedOut_DataHandler_Combiner extends SpeedOut_DataHandler {
 	 */
 	public function handleData(&$html) {
 		$this->handlingProcessData = array();
-		$linksPaths = $this->getLinksPaths($html);
-		if($linksPaths) {
-			$linksHash = $this->getLinksHash($linksPaths);
+		$linksNodes = $this->getLinksNodes($html);
+		if($linksNodes) {
+			$linksHash = $this->getLinksHash(array_keys($linksNodes));
 			// combine and store links data
 			if(!$this->storage->isStored($linksHash)) {
 				$combinedData = '';
-				foreach($linksPaths as $linkPath) {
+                $baseDir = $this->getLinksBaseDir();
+                foreach($linksNodes as $link => $data) {
+                    $linkPath = SpeedOut_Utils::getLinkPath(SpeedOut_Utils::getRealLink(html_entity_decode($link), $baseDir), $baseDir);
 					$linkData = $this->getLinkData($linkPath);
 					$combinedData .= $this->getCombinedDataPart($linkData, $linkPath);
 				}
 				$this->handleCombinedData($combinedData);
 				$this->storage->store($linksHash, $combinedData);
 			}
-			$this->removeLinks($html);
+			$html = str_replace($linksNodes, '', $html);
 			$this->addStringInCommonPlaceholder($html, $this->getCommonLinkHtml($this->storage->getUrl($linksHash)));
 		}
 	}
@@ -170,13 +163,6 @@ abstract class SpeedOut_DataHandler_Combiner extends SpeedOut_DataHandler {
 
 	protected function getLinksHash($linksPaths) {
 		$hashString = implode('@', $linksPaths);
-		if($this->isDebugMode) {
-			foreach($linksPaths as $linkPath) {
-				if(is_file($linkPath)) {
-					$hashString .= '@' . filemtime($linkPath);
-				}
-			}
-		}
 		return substr(md5($hashString), -15);
 	}
 
@@ -185,44 +171,20 @@ abstract class SpeedOut_DataHandler_Combiner extends SpeedOut_DataHandler {
 		return array_unique($m[1]);
 	}
 
-	protected function getLinksPaths($html) {
+
+
+	protected function getLinksNodes($html) {
 		$html = $this->removeHtmlComments($html);
-		$links = array();
-		$linksBaseDir = $this->getLinksBaseDir();
-		foreach($this->getLinksNodesRegexps() as $regexp) {
-			if(SpeedOut_Utils::safePregMatchAll($regexp, $html, $m)) {
-				foreach($m[1] as $link) {
-					$realLink = SpeedOut_Utils::getRealLink(html_entity_decode($link), $linksBaseDir);
-					if($this->linksFilter->isMatch($realLink)) {
-						$links[] = $realLink;
-					}
-				}
-			}
-		}
-		return $this->getUniqueLinksPaths($links);
-	}
-
-	protected function getUniqueLinksPaths(array $links, $baseDir = '.') {
-		$linksPaths = array();
-		foreach($links as $link) {
-			$path = SpeedOut_Utils::getLinkPath($link, $baseDir);
-			$linksPaths[SpeedOut_Utils::getPathUri($path)] = $path;
-		}
-		return $linksPaths;
-	}
-
-	protected function removeLinks(&$html) {
-		$replaces = array();
+		$linksData = array();
 		foreach($this->getLinksNodesRegexps() as $regexp) {
 			if(SpeedOut_Utils::safePregMatchAll($regexp, $html, $m)) {
 				foreach($m[1] as $i => $link) {
-					$link = html_entity_decode($link);
-					if($this->linksFilter->isMatch($link)) {
-						$replaces[] = $m[0][$i];
+                    if(!SpeedOut_Utils::isExternalLink($link) && $this->linksFilter->isMatch($link)) {
+                        $linksData[$link] = $m[0][$i];
 					}
 				}
 			}
-			$html = str_replace($replaces, '', $html);
 		}
+        return $linksData;
 	}
 }

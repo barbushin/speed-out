@@ -5,11 +5,9 @@ require_once(dirname(__FILE__) . '/../SpeedOut/__autoload.php');
 $speedOutCacheDir = 'cache';
 
 $cssCombiner = new SpeedOut_DataHandler_Combiner_CSS(new SpeedOut_CacheStorage_Directory($speedOutCacheDir, null, '.css'), '<!--COMMON_CSS_PLACEHOLDER-->', false);
-$cssCombiner->setDebugMode(true);
 $cssCombiner->addCombinedDataHandler(new SpeedOut_DataHandler_YUICompressor_CSS());
 
 $jsCombiner = new SpeedOut_DataHandler_Combiner_JS(new SpeedOut_CacheStorage_Directory($speedOutCacheDir, null, '.js'), '<!--COMMON_JS_PLACEHOLDER-->', false);
-$jsCombiner->setDebugMode(true);
 $jsCombiner->addCombinedDataHandler(new SpeedOut_DataHandler_YUICompressor_JS());
 
 $speedOut = SpeedOut_OutputHandler::getInstance();

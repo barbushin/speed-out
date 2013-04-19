@@ -33,7 +33,7 @@ class SpeedOut_Utils {
 
 	public static function getPathUrl($path) {
 		$url = self::getServerProtocol() . '://' . self::getServerHost();
-		if(isset($_SERVER['SERVER_PORT']) && ($_SERVER['SERVER_PORT'] == 80 || $_SERVER['SERVER_PORT'] == 443)) {
+		if(isset($_SERVER['SERVER_PORT']) && ($_SERVER['SERVER_PORT'] != 80 && $_SERVER['SERVER_PORT'] != 443)) {
 			$url .= ':' . $_SERVER['SERVER_PORT'];
 		}
 		$url .= self::getPathUri($path);
@@ -61,9 +61,7 @@ class SpeedOut_Utils {
 	}
 
 	public static function isExternalLink($link) {
-		SpeedOut_Utils::safePregMatch('~^https?\://~i', $link);
-
-		return (bool)SpeedOut_Utils::safePregMatch('~^https?\://~i', $link);
+		return strpos($link, '//') !== false;
 	}
 
 	public static function isRelativeLink($link) {
