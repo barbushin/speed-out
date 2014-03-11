@@ -45,7 +45,6 @@
 		<!--COMMON_JS_PLACEHOLDER-->
 		<script type="text/javascript" src="http://open/speed-out/example/cache/121114_7f20b2e5234a124444a901c74ee0d267.js"></script>
 		
-		
 	</head>
 	<body>
 	</body>
